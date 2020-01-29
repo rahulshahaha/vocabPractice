@@ -40,3 +40,13 @@ function handleData(){
     console.log(dataJSON);
 
 }
+
+
+function next(){
+    if(currentQuestion != numberOfQuestions - 1){
+        currentQuestion++;
+    }else{
+        currentQuestion = 0;
+    }
+    handleData();
+}
