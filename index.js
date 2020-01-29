@@ -8,6 +8,7 @@ var word2 = document.getElementById('word2');
 var word3 = document.getElementById('word3');
 var option1 = document.getElementById('option1');
 var option2 = document.getElementById('option2');
+var result = document.getElementById('result');
 
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
@@ -37,6 +38,8 @@ function handleData(){
     option1.innerHTML = dataJSON.quizlist[currentQuestion].option[0];
     option2.innerHTML = dataJSON.quizlist[currentQuestion].option[1];
 
+    result.innerHTML = "";
+
     console.log(dataJSON);
 
 }
@@ -49,4 +52,14 @@ function next(){
         currentQuestion = 0;
     }
     handleData();
+}
+
+
+function answer(num){
+    var answer = dataJSON.quizlist[currentQuestion].correct;
+    if(num == answer){
+        result.innerHTML = "RIGHT";
+    }else{
+        result.innerHTML = "WRONG";
+    }
 }
