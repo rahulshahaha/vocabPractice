@@ -17,6 +17,7 @@ xhr.addEventListener("readystatechange", function () {
 	if (this.readyState === this.DONE) {
         dataJSON = JSON.parse(this.responseText);
         numberOfQuestions = dataJSON.quizlist.length;
+        console.log(dataJSON);
         handleData();
 	}
 });
@@ -40,7 +41,6 @@ function handleData(){
 
     result.innerHTML = "";
 
-    console.log(dataJSON);
 
 }
 
